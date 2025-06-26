@@ -1,0 +1,12 @@
+[Unit]
+Description=Sniffer Hawk Service
+After=network.target
+
+[Service]
+ExecStart=/usr/bin/python3 /home/scripts/sniffer_hawk_to_server.py
+Restart=always
+ConditionPathExists=/root/.credentials.json
+ConditionPathExists=/root/.secret.key
+
+[Install]
+WantedBy=multi-user.target

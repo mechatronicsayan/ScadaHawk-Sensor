@@ -1,0 +1,18 @@
+#!/bin/bash
+
+case "$1" in
+  start)
+    # Running the Python script with Python3
+    sudo /usr/bin/python3 /home/scripts/credential_management.py
+    echo "Connecting with server..."
+    for i in {5..1}; do
+      echo -ne "\r$i "
+      sleep 1
+    done
+    echo -ne "Connection established. Rebooting...\n"
+    sudo reboot
+    ;;
+  *)
+    echo "Usage: $0 start"
+    ;;
+esac

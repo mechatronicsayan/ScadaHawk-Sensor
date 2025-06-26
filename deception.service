@@ -1,0 +1,10 @@
+[Unit]
+Description=Deception Hawk Service
+After=network.target
+
+[Service]
+ExecStart=/usr/bin/python3 /home/scripts/deception.py
+Restart=always
+
+[Install]
+WantedBy=multi-user.target 

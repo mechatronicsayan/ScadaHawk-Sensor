@@ -1,0 +1,15 @@
+#!/bin/bash
+
+case "$1" in
+  start)
+    sudo systemctl start sniffer_hawk.service
+    echo "PCAP capture started."
+    ;;
+  stop)
+    sudo systemctl stop sniffer_hawk.service
+    echo "PCAP capture stopped."
+    ;;
+  *)
+    echo "Usage: $0 (start|stop)"
+    ;;
+esac

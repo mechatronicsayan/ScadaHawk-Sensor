@@ -1,0 +1,15 @@
+#!/bin/bash
+
+case "$1" in
+  start)
+    sudo systemctl start deception.service
+    echo "Deception started."
+    ;;
+  stop)
+    sudo systemctl stop deception.service
+    echo "Deception stopped."
+    ;;
+  *)
+    echo "Usage: $0 (start|stop)"
+    ;;
+esac 

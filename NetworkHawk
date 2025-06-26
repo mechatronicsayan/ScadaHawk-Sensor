@@ -1,0 +1,23 @@
+#!/bin/bash
+
+# Wrapper for the network setup functionality
+NETWORK_SETUP_HOME="/home/hawk/deployables/network_setup.sh"
+NETWORK_SETUP_ETC="/etc/network_setup.sh"
+
+case "$1" in
+    start)
+        # Check for the script in both locations
+        if [[ -x "$NETWORK_SETUP_HOME" ]]; then
+            "$NETWORK_SETUP_HOME"
+        elif [[ -x "$NETWORK_SETUP_ETC" ]]; then
+            "$NETWORK_SETUP_ETC"
+        else
+            echo "Error: network_setup.sh not found in /home/hawk/deployables/ or /etc/."
+            exit 1
+        fi
+        ;;
+    *)
+        echo "Usage: NetworkHawk start"
+        exit 1
+        ;;
+esac
